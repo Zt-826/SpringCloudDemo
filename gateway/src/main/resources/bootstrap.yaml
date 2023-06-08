@@ -1,0 +1,42 @@
+server:
+  # 应用服务 WEB 访问端口
+  port: 58080
+
+spring:
+  application:
+    # 应用名称
+    name: gateway
+
+  # Nacos配置
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        # Nacos 服务器地址
+        server-addr: 127.0.0.1:8848
+        # namespace，默认为public
+        namespace: DEV
+        # group，默认为DEFAULT_GROUP
+        group: spring_cloud_demo
+
+      config:
+        # Nacos 服务器地址
+        server-addr: 127.0.0.1:8848
+        # namespace，默认为public
+        namespace: DEV
+        # group，默认为DEFAULT_GROUP
+        group: gateway
+        # 配置文件格式，默认为properties
+        file-extension: yaml
+        # 公共配置文件
+        shared-configs:
+          - data-id: feign-config.yaml
+            group: shared
+            refresh: true
+
+        # 扩展配置文件，优先级大于shared-configs，在其后进行加载
+        extension-configs:
+          - data-id: xxx.yaml
+            group: xxx
+            refresh: true

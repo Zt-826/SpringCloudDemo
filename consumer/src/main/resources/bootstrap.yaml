@@ -1,0 +1,21 @@
+server:
+  # 应用服务 WEB 访问端口
+  port: 58081
+
+spring:
+  application:
+    # 应用名称
+    name: consumer
+
+  # Nacos配置
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        # Nacos 服务器地址
+        server-addr: 127.0.0.1:8848
+        # namespace，默认为public
+        namespace: DEV
+        # group，默认为DEFAULT_GROUP
+        group: spring_cloud_demo
